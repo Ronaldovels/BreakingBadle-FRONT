@@ -1,0 +1,9 @@
+body {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+section#guessCharacter {
+  flex-direction: column;
+}
