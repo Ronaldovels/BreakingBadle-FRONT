@@ -28,12 +28,12 @@ function GuessForm() {
 
   const characteristicLabels = {
     gender: 'Gender',
-    filiation: 'Filiation',
+    age: 'Age',
+    hair_color: 'Hair Color',
     occupation: 'Occupation',
-    race: 'Race',
-    abilities: 'Abilities',
-    combatPower: 'combatPower',
-    specialWeapon: 'Special Weapon',
+    affiliation: 'Affiliation',
+    firstAppearance: 'First Appearance',
+    majorCrime: 'Major Crime',
     characterImg: 'Character'
   };
 
@@ -85,11 +85,11 @@ function GuessForm() {
 
   const fetchDailyCharacter = async () => {
     try {
-      const response = await fetch("https://characterdle-api.onrender.com/character/kj8/daily");
+      const response = await fetch("https://characterdle-api.onrender.com/character/bbd/daily");
       const data = await response.json();
       setDailyCharacter(data);
 
-      const lastCharacterResponse = await fetch("https://characterdle-api.onrender.com/character/kj8/last");
+      const lastCharacterResponse = await fetch("https://characterdle-api.onrender.com/character/bbd/last");
       const lastCharacterData = await lastCharacterResponse.json();
       setLastCharacter(lastCharacterData);
 
@@ -163,7 +163,7 @@ function GuessForm() {
 
     try {
       // Busca nomes com correspondência parcial para sugestões
-      const response = await fetch(`https://characterdle-api.onrender.com/character/kj8?name=${query}&exactMatch=false`);
+      const response = await fetch(`https://characterdle-api.onrender.com/character/bbd?name=${query}&exactMatch=false`);
       const data = await response.json();
   
       if (data && Array.isArray(data)) {
@@ -195,7 +195,7 @@ function GuessForm() {
   const fetchCharacterDetails = async (name) => {
     try {
       // Busca detalhes do personagem com correspondência exata
-      const response = await fetch(`https://characterdle-api.onrender.com/character/kj8?name=${name}&exactMatch=true`);
+      const response = await fetch(`https://characterdle-api.onrender.com/character/bbd?name=${name}&exactMatch=true`);
       const data = await response.json();
       if (data && data.length > 0) {
         setSelectedCharacter(data[0]);
@@ -244,7 +244,7 @@ function GuessForm() {
       }
 
       const characteristics = [
-        'name', 'gender', 'filiation', 'occupation', 'race', 'abilities', 'combatPower', 'specialWeapon'
+        'name', 'gender', 'age', 'hair_color', 'occupation', 'affiliation', 'firstAppearance', 'majorCrime'
       ];
 
       const allMatched = characteristics.every((characteristic) => {
@@ -343,7 +343,7 @@ function GuessForm() {
   const { selectedCharacter, dailyCharacter } = comparison;
 
   const characteristics = [
-    'characterImg', 'gender', 'filiation', 'occupation', 'race', 'abilities', 'combatPower', 'specialWeapon', 
+    'characterImg', 'gender', 'age', 'hair_color', 'occupation', 'affiliation','firstAppearance',  'majorCrime'
   ];
 
   return (
@@ -456,7 +456,7 @@ function GuessForm() {
       {/* Renderize os labels apenas uma vez */}
       <div className="comparison-labels">
         {[
-          'Character', 'Gender', 'Filiation', 'Occupation', 'Race', 'Abilities', 'Combat Power/Fortitude', 'Special Weapon',
+          'Character', 'Gender','Age','Hair Color', 'Occupation','Affiliation','First Appearance', 'Major Crime',
         ].map((label, index) => (
           <div key={index} className="label-item">
             <strong>{label}</strong>
