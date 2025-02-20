@@ -25,8 +25,9 @@ function WelcomeMessage() {
         {isModalVisible && (
           <div className="modal">
             <div className="modal-content">
-              <h2>Welcome to EMINENCDLE!!</h2>
-              <p id='disclaimer'>I'm just here to let you know that each one of Cid's disguises (Shadow, Minoru Kageno, Mundane Mann...) is a guessable character.</p>
+              <h2>Welcome to BREAKINGBADLE!!</h2>
+              <p id='disclaimer'>This is a simple game based in one of the best shows in history! If you have any sugestions or comments just contact me!</p>
+              <p id='disclaimer'>ronaldovf24@gmail.com</p>
               <p id='disclaimer'>Enjoy the game!😄</p>
               <button onClick={handleCloseModal} id='disclaimerButton'>Got it</button>
             </div>

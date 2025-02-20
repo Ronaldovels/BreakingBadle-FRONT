@@ -12,19 +12,13 @@ function GuessForm() {
   const [lastCharacter, setLastCharacter] = useState(null);
   const [comparisonHistory, setComparisonHistory] = useState([]);
   const [isGuessedCorrectly, setIsGuessedCorrectly] = useState(false);
-  const [showCongrats, setShowCongrats] = useState(false); // Para atrasar o parabéns
-  const [timeRemaining, setTimeRemaining] = useState(''); // Para o tempo restante
+  const [showCongrats, setShowCongrats] = useState(false); 
+  const [timeRemaining, setTimeRemaining] = useState(''); 
   const [usedGuesses, setUsedGuesses] = useState([]);
   const lastQueriedValue = useRef('');
 
-  // Referência para a div onde o personagem correto será mostrado
   const guessedCharacterRef = useRef(null);
 
-  const defaU = import.meta.env.VITE_XGRA0;
-  const dailyU = import.meta.env.VITE_XGRA3;
-  const lastU = import.meta.env.VITE_XGRA4;
-  const route0 = import.meta.env.VITE_ROUTE0
-  const route1 = import.meta.env.VITE_ROUTE1
 
   const characteristicLabels = {
     gender: 'Gender',
@@ -50,9 +44,9 @@ function GuessForm() {
 
   const setResetCookie = () => {
     const nextResetTime = new Date();
-    nextResetTime.setUTCHours(10, 59, 59, 0); // Define para 10:59:59 UTC
+    nextResetTime.setUTCHours(10, 59, 59, 0); 
   
-    // Se já passou do horário de reset, define para o próximo dia.
+
     if (new Date() >= nextResetTime) {
       nextResetTime.setUTCDate(nextResetTime.getUTCDate() + 1);
     }
@@ -72,7 +66,6 @@ function GuessForm() {
     const storedResetTime = getCookie('nextResetTime');
     const now = new Date();
   
-    // Se não houver um cookie armazenado, ou se o horário atual for após o próximo reset, limpar o localStorage e definir o próximo reset.
     if (!storedResetTime || new Date(storedResetTime) <= now) {
       resetLocalStorage();
       setResetCookie();
@@ -162,12 +155,10 @@ function GuessForm() {
     lastQueriedValue.current = query;
 
     try {
-      // Busca nomes com correspondência parcial para sugestões
       const response = await fetch(`https://characterdle-api.onrender.com/character/bbd?name=${query}&exactMatch=false`);
       const data = await response.json();
   
       if (data && Array.isArray(data)) {
-        // Mapeia para objetos que contêm o nome e a URL da imagem
         const filteredSuggestions = data
         .map((item) => ({
           name: item.name,
@@ -194,7 +185,6 @@ function GuessForm() {
 
   const fetchCharacterDetails = async (name) => {
     try {
-      // Busca detalhes do personagem com correspondência exata
       const response = await fetch(`https://characterdle-api.onrender.com/character/bbd?name=${name}&exactMatch=true`);
       const data = await response.json();
       if (data && data.length > 0) {
@@ -222,7 +212,6 @@ function GuessForm() {
   };
 
   const handleInputBlur = () => {
-    // Adiciona um pequeno atraso antes de esconder as sugestões para garantir que o clique seja registrado
     setTimeout(() => setIsInputFocused(false), 200);
   };
 
@@ -329,7 +318,6 @@ function GuessForm() {
   }, [showCongrats, isGuessedCorrectly]);
 
 
-  // Chamar a função para atualizar o tempo restante
   useEffect(() => {
     if (dailyCharacter) {
       console.log('dailyCharacter foi carregado:', dailyCharacter);
@@ -338,7 +326,6 @@ function GuessForm() {
     }
   }, [dailyCharacter]);
 
-  // Renderiza as comparações sem os labels
   const renderComparison = (comparison, index) => {
   const { selectedCharacter, dailyCharacter } = comparison;
 
@@ -353,20 +340,16 @@ function GuessForm() {
           const userValue = selectedCharacter[characteristic];
           const dailyValue = dailyCharacter[characteristic];
           
-          // Inicialize como falso e cheque correspondências parciais para 'filiation'
           let isPartialMatch = false;
 
-          // Verifica correspondência parcial para 'filiation'
           if (characteristic === 'filiation' && userValue && dailyValue) {
             const userValuesArray = userValue.split(',').map((val) => val.trim().toLowerCase());
             const dailyValuesArray = dailyValue.split(',').map((val) => val.trim().toLowerCase());
             isPartialMatch = userValuesArray.some((userVal) => dailyValuesArray.includes(userVal));
           }
 
-          // Verifica correspondência exata
           const isExactMatch = userValue && dailyValue && userValue === dailyValue;
 
-          // Verifica se a característica é a imagem e renderiza corretamente a tag <img>
           if (characteristic === 'characterImg') {
             return (
               <div
@@ -378,7 +361,7 @@ function GuessForm() {
                     src={selectedCharacter.characterImg}
                     alt={selectedCharacter.name || 'Selected character'}
                     className="comparison-img"
-                    onError={(e) => { e.target.src = '/path/to/fallback-image.jpg'; }} // Fallback para imagem padrão
+                    onError={(e) => { e.target.src = '/path/to/fallback-image.jpg'; }} 
                   />
                 ) : 'No Image'}
               </div>
@@ -417,15 +400,15 @@ function GuessForm() {
             required
             placeholder="Digite um personagem"
             autoComplete="off"
-            disabled={isGuessedCorrectly} // Desativa o input se o personagem foi adivinhado
+            disabled={isGuessedCorrectly} 
           />
           <button
             type="submit"
             id="submitButton"
-            disabled={!isSuggestionSelected || isGuessedCorrectly} // Desativa o botão se o personagem foi adivinhado
+            disabled={!isSuggestionSelected || isGuessedCorrectly} 
           >
             <img
-              src="https://i.postimg.cc/CKs3ztg0/submit-Button.png"
+              src="https://res.cloudinary.com/dtnscijch/image/upload/v1739994176/fly_eewtjo.svg"
               alt="submit"
               id="submitButtonImg"
             />
@@ -444,7 +427,7 @@ function GuessForm() {
           src={suggestion.characterImg}
           alt={suggestion.name}
           className="suggestion-img"
-          onError={(e) => { e.target.src = '/path/to/fallback-image.jpg'; }} // Fallback para imagem padrão
+          onError={(e) => { e.target.src = '/path/to/fallback-image.jpg'; }} 
         />
         <span>{suggestion.name}</span>
       </li>
@@ -453,7 +436,7 @@ function GuessForm() {
         )}
       </div>
 
-      {/* Renderize os labels apenas uma vez */}
+
       <div className="comparison-labels">
         {[
           'Character', 'Gender','Age','Hair Color', 'Occupation','Affiliation','First Appearance', 'Major Crime',
@@ -464,7 +447,6 @@ function GuessForm() {
         ))}
       </div>
 
-      {/* Exibe a lista de comparações */}
       <div className="comparison-results">
         {comparisonHistory.map((comparison, index) => renderComparison(comparison, index))}
       </div>
@@ -506,7 +488,7 @@ function GuessForm() {
         </div>
       </div>
 
-      {/* Exibe a seção de parabéns após o atraso com a animação */}
+
       {isGuessedCorrectly && showCongrats && dailyCharacter && (
         <div id="sucess-messageContainer">
           <div className="success-message" ref={guessedCharacterRef}>
@@ -516,19 +498,17 @@ function GuessForm() {
             </div>
             <div id="characterGuessRight">
               <img
-                src={dailyCharacter.characterImg} // Usa a URL da imagem retornada pela API
+                src={dailyCharacter.characterImg} 
                 alt={dailyCharacter.name}
                 id="guessedCharacterImg"
               />
               <p id="guessedCharacterName">{dailyCharacter.name}</p>
             </div>
-            <p id='tries'>Tries: {comparisonHistory.length}</p> {/* Mostra o número de tentativas */}
-            <h2 id='timeNextCharacter'>Next Character in: </h2> {/* Mostra o tempo até o próximo personagem */}
+            <p id='tries'>Tries: {comparisonHistory.length}</p> 
+            <h2 id='timeNextCharacter'>Next Character in: </h2>
             <p id='timeRemaining'>{timeRemaining}</p>
        
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing <br />elit. Tempora tempore quibusdam illum explicabo  <br />est dolore assumenda nulla totam. Nesciunt, sed corrupti? Natus <br />rerum, exercitationem nesciunt consequuntur quam obcaecati ad dolorem.</p><br />
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />Dolores reprehenderit odio perspiciatis sed, architecto assumenda labore quaerat <br />reiciendis ipsa vitae velit eveniet quasi atque, molestiae adipisci corporis quos eius quisquam!</p><br />
-            <p>Lorem ipsum <br />dolor sit amet consectetur adipisicing elit. Blanditiis totam numquam dolorem nemo, molestias ad iure, fuga voluptatem nobis <br />accusantium excepturi quia autem repellendus labore eveniet nisi voluptate cumque recusandae.</p>
+            <p>{dailyCharacter.about}</p>
           </div>
         </div>
       )}

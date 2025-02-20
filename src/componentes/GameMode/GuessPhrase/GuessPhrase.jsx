@@ -11,7 +11,7 @@ function GuessPhrase() {
             <Link to="/" id="choose">
                 <img src="https://res.cloudinary.com/dtnscijch/image/upload/v1734206863/hei_uplerc.png" alt="icon" id="optionIMG" />
                 <div id="container_text">
-                    <p id="text">Guess the Episode</p>
+                    <p id="text">Guess the Phrase</p>
                 </div>
             </Link>
             

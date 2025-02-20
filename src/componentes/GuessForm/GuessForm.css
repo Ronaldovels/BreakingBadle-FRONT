@@ -8,28 +8,23 @@
 
 
 
-/* Centraliza todo o conteúdo da página */
+
 #formTitleContainer {
   text-align: center;
-  /* Garante que o título fique no centro */
+ 
   margin-bottom: 20px;
 }
 
 #formContainer {
+  background-image: url(../../assets/walter-glasses.png);
+  background-size: cover;
   display: flex;
-  /* Organiza o input e o botão em linha */
   align-items: center;
-  /* Alinha os itens verticalmente no centro */
   gap: 10px;
-  /* Espaçamento entre o input e o botão */
   width: 100%;
-  /* Garante que o formulário ocupe 100% da largura disponível */
   max-width: 500px;
-  /* Largura máxima do formulário */
   margin: 0 auto;
-  /* Centraliza o formulário na página */
   position: relative;
-  /* Necessário para controlar a posição da lista */
   border: 1px solid purple;
   align-items: center;
   justify-content: center;
@@ -45,7 +40,7 @@ form#form_ {
 
 #character {
   flex: 1;
-  /* Faz com que o input ocupe o espaço restante */
+ 
   background-color: #A24651;
   padding: 10px;
   font-size: 16px;
@@ -72,17 +67,18 @@ form#form_ {
 }
 
 img#submitButtonImg {
-  width: 100px;
+  margin-left: 30px;
+  width: 50px;
   rotate: 90deg;
 
 }
 
-/* Estilos para a lista suspensa de sugestões */
+
 .suggestions-list {
   position: absolute;
-  /* A lista é posicionada de forma absoluta em relação ao contêiner do input */
+ 
   top: 100%;
-  /* Garante que a lista apareça logo abaixo do input */
+ 
   left: 0;
   right: 0;
   background-color: #A24651;
@@ -92,7 +88,7 @@ img#submitButtonImg {
   max-height: 150px;
   overflow-y: auto;
   z-index: 1000;
-  /* Garante que a lista apareça acima de outros elementos */
+ 
   border-radius: 4%;
 }
 
@@ -105,18 +101,18 @@ img#submitButtonImg {
 }
 
 .suggestion-img {
-  width: 40px; /* Define a largura da imagem */
-  height: 40px; /* Define a altura da imagem */
-  object-fit: cover; /* Ajusta a imagem para cobrir o espaço sem distorção */
-  margin-right: 10px; /* Adiciona espaço entre a imagem e o nome */
-  border-radius: 4px; /* Bordas levemente arredondadas */
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  margin-right: 10px;
+  border-radius: 4px;
 }
 
 .suggestion-item:hover {
   background-color: #A24651;
 }
 
-/* Estilos para a comparação horizontal */
+
 .comparison-container {
   display: flex;
   flex-direction: column;
@@ -142,14 +138,14 @@ img#submitButtonImg {
 
 .comparison-results {
   max-height: 500px;
-  /* Altura máxima para a área de comparações, ajuste conforme necessário */
+ 
   overflow-y: auto;
-  /* Habilita a rolagem vertical quando a altura máxima for atingida */
+ 
   padding: 10px;
-  /* Espaçamento interno para o conteúdo não ficar colado nas bordas */
+ 
 
   margin-top: 20px;
-  /* Espaçamento superior entre o formulário e a área de comparação */
+ 
 }
 
 
@@ -159,7 +155,7 @@ img#submitButtonImg {
   text-align: center;
   max-width: 150px;
   word-wrap: break-word;
-  /* Quebra as palavras longas em múltiplas linhas */
+ 
 }
 
 .match {
@@ -167,7 +163,7 @@ img#submitButtonImg {
   align-items: center;
   justify-content: center;
   background-color: var(--green);
-  /* Verde claro */
+ 
   border-radius: 13px;
   padding: 0;
   border: 2px solid #085e1c;
@@ -179,13 +175,13 @@ img#submitButtonImg {
   justify-content: center;
   border: 2px solid #8d0e18;
   background-color: var(--red);
-  /* Vermelho claro */
+ 
   border-radius: 13px;
   padding: 0;
 }
 
 .partial-match {
-  background-color: #886602; /* Amarelo */
+  background-color: #886602;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -207,6 +203,7 @@ div#sucess-messageContainer {
 div#congratsTitleContainer {
   display: flex;
   flex-direction: column;
+  text-align: center;
   align-items: center;
   justify-content: center;
 }
@@ -223,9 +220,9 @@ div#congratsTitleContainer {
   border: 1px solid #FFCA4B;
   border-radius: 20px;
   position: relative;
-  /* Torna o elemento posicionado relativamente */
+ 
   top: 20px;
-  /* Move o elemento para baixo, semelhante ao margin-top */
+ 
 }
 
 div#colorIndicatorsContainer {
@@ -338,31 +335,26 @@ div#characterGuessRight {
 }
 
 .comparison-images {
-
   margin-top: 10px;
 }
 
 .comparison-img {
-  width: 106%;
-  /* Faz a imagem ocupar 100% da largura */
-  height: 106%;
-  /* Faz a imagem ocupar 100% da altura */
-  object-fit: fill;
-  /* Garante que a imagem cubra o contêiner, cortando as bordas se necessário */
-  border: 2px solid #A24651;
+  width: 87px;
+  height: 92px;
+  object-fit: cover;
   border-radius: 14px;
-  /* Bordas arredondadas, opcional */
+ 
 }
 
 .image-wrapper {
   width: 150px;
-  /* Defina a largura desejada para o quadrado */
+ 
   height: 150px;
-  /* Defina a altura igual à largura para garantir o formato quadrado */
+ 
   overflow: hidden;
-  /* Garante que a imagem não transborde o contêiner */
+ 
   position: relative;
-  /* Facilita controle posicional, caso necessário */
+ 
 }
 
 img#guessedCharacterImg {
@@ -405,17 +397,17 @@ p#tries {
   0% {
     opacity: 0;
     transform: translateY(10px);
-    /* Leve deslizamento de baixo */
+   
   }
 
   100% {
     opacity: 1;
     transform: translateY(0);
-    /* Volta à posição original */
+   
   }
 }
 
-/* Todos os quadrados começam transparentes e recebem a animação */
+
 .comparison-item {
   opacity: 0;
   animation: fadeInCell 0.6s ease forwards;
@@ -423,20 +415,20 @@ p#tries {
 
 
 
-/* Definindo o atraso progressivo para cada quadrado, de acordo com a posição */
+
 .comparison-container .comparison-item:nth-child(1) {
   animation-delay: 0s;
-  /* Primeiro quadrado começa imediatamente */
+ 
 }
 
 .comparison-container .comparison-item:nth-child(2) {
   animation-delay: 0.6s;
-  /* Segundo quadrado começa após o primeiro terminar */
+ 
 }
 
 .comparison-container .comparison-item:nth-child(3) {
   animation-delay: 1.2s;
-  /* Terceiro quadrado começa após o segundo terminar */
+ 
 }
 
 .comparison-container .comparison-item:nth-child(4) {
@@ -482,13 +474,13 @@ p#tries {
   from {
     opacity: 0;
     transform: translateY(20px);
-    /* Começa 20px abaixo */
+   
   }
 
   to {
     opacity: 1;
     transform: translateY(0);
-    /* Volta à posição original */
+   
   }
 }
 
