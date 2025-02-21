@@ -18,6 +18,6 @@ body {
   background-size: cover;
   background-attachment: fixed ;
   overflow-x: hidden;
-  backdrop-filter: blur(px);
-  background-image: url(assets/8.jpg);
+  backdrop-filter: blur(10px);
+  background-image: url(assets/5.jpg);
 }

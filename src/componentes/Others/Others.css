@@ -1,16 +1,16 @@
-main {
+#OtherMain {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 35%;
     height: 100%;
-    margin: 10px;
+    margin: auto;
     outline: 1px solid red;
     /*backdrop-filter: blur(10px);*/
    /* background: linear-gradient(180deg, #010326 0%, #010B40  100%);*/
 }
 
-nav {
+#OtherNav {
     outline: 1px solid green;
     display: flex;
     flex-direction: column;

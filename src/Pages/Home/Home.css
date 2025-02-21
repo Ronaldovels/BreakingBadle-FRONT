@@ -6,4 +6,5 @@ body {
 
 section#guessCharacter {
   flex-direction: column;
+  width: 30%;
 }

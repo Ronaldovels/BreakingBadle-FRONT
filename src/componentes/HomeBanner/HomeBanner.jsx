@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom'; // Importar Link para navegação
 
 function Banner() {
     return (
-        <main>
-            <nav>
+        <main id="HomeBannerMain">
+            <nav id='HomeNav'>
                 <Link to="/" id='link_title'>
                     <h1 id='home'>
                         <div id="container">

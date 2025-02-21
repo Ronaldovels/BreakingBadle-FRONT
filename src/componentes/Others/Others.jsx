@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'; // Importar Link para navegação
 
 function Others() {
     return (
-        <main>
-            <nav>
+        <main id="OtherMain">
+            <nav id="OtherNav">
                 <h1 id='home'>You may like too!</h1>
                 <div id="links-container">
                     <Link to="https://eminencedle.vercel.app" id='link_sub'>
