@@ -5,6 +5,7 @@
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,7 +13,7 @@
   }
   
   .modal-content {
-    background: rgb(117, 10, 50);
+    background: linear-gradient(180deg, #1d8d39 0%, #1a522d 50%, #021b09 100%);
     padding: 20px;
     border-radius: 8px;
     border: 1px solid #FFCA4B;
@@ -30,6 +31,6 @@
     width: 100px;
     height: 30px;
     font-size: 1.3em;
-    background-color: rgb(117, 10, 50);
+    background: linear-gradient(180deg, #1d8d39 0%, #1a522d 50%, #021b09 100%);
     border: 1px solid #FFCA4B;
   }

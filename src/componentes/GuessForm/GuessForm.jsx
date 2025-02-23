@@ -20,6 +20,12 @@ function GuessForm() {
   const guessedCharacterRef = useRef(null);
 
 
+  const AB_URL = import.meta.env.VITE_API_BASE_URL;
+  const D_CHARACTER_ROUTE = import.meta.env.VITE_DAILY_CHARACTER_ROUTE;
+  const L_CHARACTER_ROUTE = import.meta.env.VITE_LAST_CHARACTER_ROUTE;
+  const C_S_ROUTE = import.meta.env.VITE_CHARACTER_SEARCH_ROUTE;
+
+
   const characteristicLabels = {
     gender: 'Gender',
     age: 'Age',
@@ -78,11 +84,11 @@ function GuessForm() {
 
   const fetchDailyCharacter = async () => {
     try {
-      const response = await fetch("https://characterdle-api.onrender.com/character/bbd/daily");
+      const response = await fetch(`${AB_URL}${D_CHARACTER_ROUTE}`);
       const data = await response.json();
       setDailyCharacter(data);
 
-      const lastCharacterResponse = await fetch("https://characterdle-api.onrender.com/character/bbd/last");
+      const lastCharacterResponse = await fetch(`${AB_URL}${L_CHARACTER_ROUTE}`);
       const lastCharacterData = await lastCharacterResponse.json();
       setLastCharacter(lastCharacterData);
 
@@ -155,7 +161,7 @@ function GuessForm() {
     lastQueriedValue.current = query;
 
     try {
-      const response = await fetch(`https://characterdle-api.onrender.com/character/bbd?name=${query}&exactMatch=false`);
+      const response = await fetch(`${AB_URL}${C_S_ROUTE}?name=${query}&exactMatch=false`);
       const data = await response.json();
   
       if (data && Array.isArray(data)) {
@@ -185,7 +191,7 @@ function GuessForm() {
 
   const fetchCharacterDetails = async (name) => {
     try {
-      const response = await fetch(`https://characterdle-api.onrender.com/character/bbd?name=${name}&exactMatch=true`);
+      const response = await fetch(`${AB_URL}${C_S_ROUTE}?name=${name}&exactMatch=false`);
       const data = await response.json();
       if (data && data.length > 0) {
         setSelectedCharacter(data[0]);
@@ -389,6 +395,7 @@ function GuessForm() {
         <h1 id="formt_title">Guess The Character</h1>
       </div>
       <div id="formContainer">
+        
         <form onSubmit={handleSubmit} id="form_">
           <input
             id="character"
@@ -398,7 +405,7 @@ function GuessForm() {
             onFocus={handleInputFocus}
             onBlur={handleInputBlur}
             required
-            placeholder="Digite um personagem"
+            placeholder="Guess a character"
             autoComplete="off"
             disabled={isGuessedCorrectly} 
           />
@@ -434,6 +441,7 @@ function GuessForm() {
             ))}
           </ul>
         )}
+      
       </div>
 
 
@@ -442,9 +450,10 @@ function GuessForm() {
           'Character', 'Gender','Age','Hair Color', 'Occupation','Affiliation','First Appearance', 'Major Crime',
         ].map((label, index) => (
           <div key={index} className="label-item">
-            <strong>{label}</strong>
+            <strong className='label-item-text'>{label}</strong>
           </div>
         ))}
+        
       </div>
 
       <div className="comparison-results">
@@ -509,6 +518,8 @@ function GuessForm() {
             <p id='timeRemaining'>{timeRemaining}</p>
        
             <p>{dailyCharacter.about}</p>
+
+            <iframe width="300" height="450" margin-top="20px" src="https://www.youtube.com/embed/LyEqj8mC7iQ" title="3D Saul Goodman, Extended to Full Song, 1080p Full HD, 60fps" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
         </div>
       )}

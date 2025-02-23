@@ -1,0 +1,76 @@
+
+#choose {
+    height: 100px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    background-size: cover;
+    transition: transform 0.7s;
+    border-radius: 10px;
+    border: 2px solid rgb(126, 126, 39);
+    background-color: rgb(182, 182, 97);
+}
+
+#choose:hover {
+    background-color: rgb(224, 224, 111);
+    transition: transform 0.7s;
+    border: 2px solid rgb(68, 68, 11);
+    transform: scale(1.1);
+    
+}
+
+
+.smoke {
+    display: flex;
+    justify-content: center;
+    
+}
+
+
+img#optionIMG {
+    margin: 10px;
+    width: 40px;
+}
+
+
+
+p#text {
+    text-align: center;
+    color: darkgreen;
+    font-size: 1.25em;
+    font-weight: bolder;    
+}
+
+
+@keyframes particleMove {
+    0% {
+      transform: translateY(0) scaleX(1);
+      opacity: 0;
+  }
+  15% {
+      opacity: 1;
+  }
+  50% {
+      transform: translateY(-10px) scaleX(5);
+  }
+  90% {
+      opacity: 0;
+  }
+  100% {
+      transform: translateY(-40px) scaleX(10);
+  }
+  }
+  
+  .particle {
+    position: absolute;
+    width: 5px;
+    height: 15px;
+    background-color: var(--breaking-bad-green);
+    border-radius: 50%;
+    opacity: 0;
+    background-color: white;
+    animation: particleMove 2s infinite;
+    filter: blur(2px);
+  }

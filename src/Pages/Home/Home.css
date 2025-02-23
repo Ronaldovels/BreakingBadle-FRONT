@@ -1,10 +1,47 @@
 body {
     display: flex;
+    flex-direction: row;
     align-items: flex-start;
     justify-content: center;
   }
 
-section#guessCharacter {
+
+.homeContainer {
+  display: flex;
+  gap: 50px;
+}
+
+section#chooseGameMode {
+  gap: 20px;
   flex-direction: column;
   width: 30%;
+}
+
+.negroYazul {
+  display: flex;
+  width: 1200px;
+  height: 700px;
+  border-radius: 30px;
+  border: 2px solid #2196F3;
+  
+}
+
+.videoNYA {
+  border: 2px solid #2196F3;
+  width: 60%;
+  height: 100%;
+  border-radius: 30px;
+}
+
+.NYAlyrics {
+  width: 40%;
+}
+
+.iframeLyrics {
+  border: 2px solid #2196F3;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  height: 100%;
+  width: 100%;
+
 }
