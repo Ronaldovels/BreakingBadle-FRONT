@@ -5,7 +5,6 @@
     width: 100vw;
     height: 100%;
     margin-bottom: 30px;
-
     outline: 1px solid red;
     background: linear-gradient(180deg, #1d8d39 0%, #1a522d 50%, #021b09 100%);
 }
@@ -65,13 +64,13 @@
 
 h1#home {
     display: flex;
-    font-size: 4em;
+    font-size: 4rem;
 }
 
 p#subtitle_home {
     display: flex;
     margin-top: 10px;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     color: white;
     font-family: 'Heart-Breaking-Bad';
 }
@@ -137,4 +136,283 @@ div#none {
     align-items: center;
     color: white;
     
+}
+
+@media (max-width: 430px) {
+    #HomeBannerMain {
+        width: 100%;
+    }
+
+    div#container {
+        display: flex;
+        flex-direction: column;
+        width:  70px;
+        height: 70px;
+    }
+
+    div#BR, div#BA {
+        height: 22px;
+        font-size: 3rem;
+
+    }
+    
+    div#number {
+        font-size: 0.8rem;
+
+        
+    
+    }
+
+    
+    div#none {
+        
+        font-size: 2rem;
+
+        
+    }
+}
+
+
+@media (min-width: 431px) and (max-width: 481px) {
+    #HomeBannerMain {
+        width: 100%;
+    }
+
+    div#container {
+        display: flex;
+        flex-direction: column;
+        width:  90px;
+        height: 90px;
+    }
+
+    div#BR, div#BA {
+        height: 28px;
+        font-size: 3rem;
+
+    }
+    
+    div#number {
+        font-size: 1.2rem;
+
+        
+    
+    }
+
+    
+    div#none {
+        
+        font-size: 3rem;
+
+        
+    }
+}
+
+@media (min-width: 482px) and (max-width: 769px) {
+    #HomeBannerMain {
+        width: 100%;
+    }
+
+    div#container {
+        display: flex;
+        flex-direction: column;
+        width:  90px;
+        height: 90px;
+    }
+
+    div#BR, div#BA {
+        height: 50px;
+        font-size: 4rem;
+
+    }
+    
+    div#number {
+        font-size: 15px;
+
+        
+    
+    }
+
+    
+    div#none {
+        
+        font-size: 4rem;
+
+        
+    }
+}
+
+@media (min-width: 770) and (max-width: 1200px) {
+    #HomeBannerMain {
+        width: 100%;
+    }
+
+    div#container {
+        display: flex;
+        flex-direction: column;
+        width:  90px;
+        height: 90px;
+    }
+
+    div#BR, div#BA {
+        height: 50px;
+        font-size: 4rem;
+
+    }
+    
+    div#number {
+        font-size: 15px;
+
+        
+    
+    }
+
+    
+    div#none {
+        
+        font-size: 4rem;
+
+        
+    }
+}
+
+@media (min-width: 1201px) {
+    #HomeBannerMain {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100%;
+        margin-bottom: 30px;
+        outline: 1px solid red;
+        background: linear-gradient(180deg, #1d8d39 0%, #1a522d 50%, #021b09 100%);
+    }
+    
+    #HomeNav { 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        outline: 1px solid black;
+    }
+    
+    .formulasContainer {
+        width: 37%;
+        height: 168px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    
+    }
+    
+    .formulas1, .formulas2, .formulas3, .formulas4 {
+        width: 100%;
+        height: 168px;
+        color: #1d8d39;
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+    }
+    
+    .formulasText {
+        width: 400px;
+        font-size: 5px;
+        opacity: 0;
+        animation: formulasMove 6s infinite;
+        animation-delay: calc(var(--i) * 0.5s);
+    }
+    
+    
+    @keyframes formulasMove {
+        0% {
+          transform: scale(3);
+          opacity: 0.7;
+      }
+      100% {
+          transform: scale(1);
+          opacity: 0;
+      }
+      }
+    
+    
+    #link_title, #link_sub {
+        text-decoration: none;
+    }
+    
+    h1#home {
+        display: flex;
+        font-size: 4rem;
+    }
+    
+    p#subtitle_home {
+        display: flex;
+        margin-top: 10px;
+        font-size: 1.5rem;
+        color: white;
+        font-family: 'Heart-Breaking-Bad';
+    }
+    
+    section {
+        
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    @font-face {
+        font-family: 'Heart-Breaking-Bad';
+        src: url(assets/fonts/BRB.otf) format('opentype');
+      }
+    
+    div#container {
+        width:  90px;
+        height: 90px;
+        background: linear-gradient(180deg, #0B3B17 0%, #1A472A 50%, #0B3B17 100%);
+        color: white;
+        outline: 2px solid white;
+        
+        
+    }
+    
+    div#BR {
+        height: 50px;
+        font-size: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+    }
+    
+    div#number {
+        margin-top: 5px;
+        margin-right: 5px;
+        display: flex;
+        align-items: end;
+        justify-content: end;
+        font-size: 15px;
+        
+    
+    }
+    
+    div#BA {
+        height: 50px;
+        font-size: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+    }
+    
+    div#none {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        
+    }
 }
